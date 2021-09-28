@@ -1,4 +1,4 @@
-const { READ, READ_WRITE } = require('../config/roles.json');
+const { READ, READ_WRITE } = require('./roles.json');
 
 class User {
   constructor(name, id, pwd, role = READ) {

@@ -2,7 +2,6 @@ const { resolve } = require('path');
 const Article = require('./models/article');
 const Product = require('./models/product');
 const ArticleProduct = require('./models/article-product');
-const User = require('./models/user');
 
 /**
  * import product json
@@ -32,16 +31,4 @@ const articles = (filename) => {
   return list.map(({ art_id: id, name, stock = 0 }) => new Article(id, name, stock));
 };
 
-/**
- *import user json
- *
- * @param {string} filename
- * @return {array} of User
- */
-const users = (filename) => {
-  const users = require(resolve(filename)) || [];
-
-  return users.map(({ name, id, pwd, role }) => new User(name, id, pwd, role));
-};
-
-module.exports = { products, articles, users };
+module.exports = { products, articles };
