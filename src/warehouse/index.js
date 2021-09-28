@@ -133,6 +133,12 @@ class WareHouse {
     log.debug(`one unit of ${name} was sold`);
   }
 
+  /**
+   * list of sold products
+   *
+   * @readonly
+   * @memberof WareHouse
+   */
   get sales() {
     const keys = Object.keys(this._sales);
     return keys.map((name) => ({ name, amount: this._sales[name] }));

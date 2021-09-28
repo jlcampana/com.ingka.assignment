@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 const { version, name } = require('../../package.json');
 
 const defaultGlobalNamespace = `${name}@${version}`;

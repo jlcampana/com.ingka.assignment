@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 class Article {
   constructor(id, name, stock) {
     this.id = id;
