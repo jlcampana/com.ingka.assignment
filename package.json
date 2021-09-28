@@ -2,7 +2,7 @@
   "name": "jlc.warehouse",
   "version": "1.0.0",
   "description": "NodeJS assignment",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage"
