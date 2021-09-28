@@ -1,0 +1,17 @@
+node_modules/
+target/
+*.csv
+*.dat
+*.iml
+*.log
+*.out
+*.pid
+*.seed
+*.sublime-*
+*.swo
+*.swp
+*.tgz
+*.md
+coverage/
+target/
+**/**/test.js

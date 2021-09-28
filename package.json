@@ -1,0 +1,36 @@
+{
+  "name": "jlc.warehouse",
+  "version": "1.0.0",
+  "description": "NodeJS assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlcampana/com.ingka.assignment.git"
+  },
+  "keywords": [
+    "nodejs",
+    "assignment",
+    "ingka"
+  ],
+  "author": "Jose Luis Campaña Perez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlcampana/com.ingka.assignment/issues"
+  },
+  "homepage": "https://github.com/jlcampana/com.ingka.assignment#readme",
+  "devDependencies": {
+    "jest": "^27.2.2",
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-jest": "^23.20.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
