@@ -18,7 +18,8 @@ class WareHouse {
 
   get loader() {
     return {
-      products: (filename, { reset = false }) => {
+      products: (filename, options = {}) => {
+        const { reset = false } = options;
         try {
           const items = require('./loader').products(filename);
           this.addProducts(items, { reset });
@@ -26,7 +27,8 @@ class WareHouse {
           log.error(error);
         }
       },
-      articles: (filename, { reset = false }) => {
+      articles: (filename, options = {}) => {
+        const { reset = false } = options;
         try {
           const items = require('./loader').articles(filename);
           this.addArticles(items, { reset });
@@ -117,7 +119,7 @@ class WareHouse {
     }
 
     if (!product.availability(this.articles)) {
-      throw new Error(`product not available ${name}`);
+      throw new Error(`product not available: ${name}`);
     }
 
     product.articles.forEach(({ id, amount }) => {
@@ -142,6 +144,17 @@ class WareHouse {
   get sales() {
     const keys = Object.keys(this._sales);
     return keys.map((name) => ({ name, amount: this._sales[name] }));
+  }
+
+  /**
+   * reset system
+   *
+   * @memberof WareHouse
+   */
+  reset() {
+    this.products = [];
+    this.articles = {};
+    this._sales = {};
   }
 }
 
