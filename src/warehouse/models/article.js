@@ -1,9 +1,15 @@
 /* istanbul ignore file */
+const assert = require('assert');
 class Article {
-  constructor(id, name, stock) {
-    this.id = id;
-    this.name = name;
-    this.stock = Number(stock);
+  constructor(id, name, stock = 0) {
+    assert(id, 'mandatory field "id"');
+    assert(name, 'mandatory field "name"');
+    assert(Number(stock) >= 0, 'stock could not be a negative number');
+
+    this.id = String(id);
+    this.name = String(name);
+
+    this.stock = Math.trunc(Number(stock));
   }
 }
 

@@ -1,9 +1,10 @@
+const assert = require('assert');
 const MAX_STOCK = 99999999999999999999999999;
 class Product {
-  constructor(id, name, price = 0, articles = []) {
-    this.id = id;
-    this.name = name;
-    this.price = Number(price);
+  constructor(name, price = 0, articles = []) {
+    assert(name, 'mandatory field "name"');
+    this.name = String(name);
+    this.price = Math.abs(Number(price));
     this.articles = articles;
   }
 

@@ -13,10 +13,9 @@ const products = (filename) => {
 
   return list.map((item) => {
     const { name, contain_articles: articles = [], price = 0 } = item;
-    const id = name.toLowerCase().replace(' ', '_');
     const articleList = articles.map(({ art_id, amount_of }) => new ArticleProduct(art_id, amount_of));
 
-    return new Product(id, name, price, articleList);
+    return new Product(name, price, articleList);
   });
 };
 
