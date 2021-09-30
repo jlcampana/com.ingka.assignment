@@ -1,5 +1,5 @@
 const log = require('../logger')('warehouse-manager');
-
+const ProductError = require('./error');
 let instance;
 
 class WareHouse {
@@ -115,11 +115,13 @@ class WareHouse {
     const product = this.products.find((item) => item.name.toLowerCase() === name.toLowerCase());
 
     if (!product) {
-      throw new Error(`product not found: ${name}`);
+      throw new ProductError(ProductError.codes.PRODUCT_NOT_FOUND);
+      // throw new Error(`product not found: ${name}`);
     }
 
     if (!product.availability(this.articles)) {
-      throw new Error(`product not available: ${name}`);
+      throw new ProductError(ProductError.codes.PRODUCT_NOT_AVAILABLE);
+      // throw new Error(`product not available: ${name}`);
     }
 
     product.articles.forEach(({ id, amount }) => {

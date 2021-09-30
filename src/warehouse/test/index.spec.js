@@ -50,7 +50,7 @@ describe('warehouse', () => {
       wh.sellProductName('fistro');
     } catch (error) {
       expect(error).toBeDefined();
-      expect(error).toHaveProperty('message', 'product not found: fistro');
+      expect(error).toHaveProperty('code', 'NOT_FOUND');
     }
   });
 
@@ -63,7 +63,7 @@ describe('warehouse', () => {
       wh.sellProductName(wh.availableProducts[1].name);
     } catch (error) {
       expect(error).toBeDefined();
-      expect(error).toHaveProperty('message', 'product not available: Dinning Table');
+      expect(error).toHaveProperty('code', 'NOT_AVAILABLE');
     }
   });
 

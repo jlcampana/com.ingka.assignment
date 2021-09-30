@@ -29,13 +29,11 @@ The warehouse should have at least the following functionality;
 My proposal is a Rest API with the following endpoints:
 
 - post /api/oauth
-- get /api/users
-- get /api/user/:id
 - get /api/products - available products
 - get /api/sales - sold product list
-- put /api/sales/:name
-- put /api/admin/products
-- put /api/admin/articles
+- post /api/sales/:name
+- post /api/admin/products
+- post /api/admin/articles
 
 ## How to start
 
