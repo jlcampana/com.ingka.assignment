@@ -1,0 +1,14 @@
+[
+  {
+    "id": "ganesh",
+    "pwd": "namaste",
+    "name": "Ganesh Krishnamoorthy",
+    "role": 1
+  },
+  {
+    "id": "jose",
+    "pwd": "hola",
+    "name": "Jose Luis Campaña",
+    "role": 0
+  }
+]

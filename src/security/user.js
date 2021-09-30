@@ -24,12 +24,11 @@ class User {
    * @memberof User
    */
   set role(role) {
-    if (Number(role) = READ_WRITE) {
+    if (Number(role) === READ_WRITE) {
       this._role = Number(role);
     } else {
       this._role = READ;
     }
-
   }
 }
 
