@@ -10,7 +10,7 @@
       "console": "integratedTerminal",
       "name": "warehouse",
       "program": "${workspaceFolder}/src/index.js",
-      "cwd": "${workspaceFolder}/src",
+      "cwd": "${workspaceFolder}",
       "env": {
         "LOG_PRETTY": "true",
         "LOG_LEVEL": "info",

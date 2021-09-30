@@ -2,10 +2,11 @@
   "name": "campana.joseluis",
   "version": "1.0.0",
   "description": "NodeJS assignment",
-  "main": "src/index.js",
   "scripts": {
+    "start": "node ./src/index.js",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "start-with-logs": "DEBUG=error*,warn*,info*,debug* npm start"
   },
   "repository": {
     "type": "git",

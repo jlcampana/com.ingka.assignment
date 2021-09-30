@@ -31,15 +31,16 @@ My proposal is a Rest API with the following endpoints:
 - post /api/oauth
 - get /api/products - available products
 - get /api/sales - sold product list
-- post /api/sales/:name
-- post /api/admin/products
-- post /api/admin/articles
+- post /api/sales/:name - sell a product
+- post /api/admin/products - upload a products JSON file
+- post /api/admin/articles - upload an articles JSON file
 
 ## How to start
 
 - Clone this repo
 - Install the dependencies with `npm i`
-- Start the server with `npm start`
+- Start the server with `npm start` or `npm run start-with-logs`
+- Use this [Postman collection](./campana-joseluis.postman_collection.json) for a better experience. [Get postman here](https://www.postman.com/).
 
 ### Env vars
 
