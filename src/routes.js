@@ -13,4 +13,10 @@ module.exports = (server, securityManager, warehouseManager) => {
   server.post('/api/sales/:name', [mwToken, mwWriteAccess], createSaleController);
   server.post('/api/admin/products', [mwToken, mwWriteAccess], uploadProductsController);
   server.post('/api/admin/articles', [mwToken, mwWriteAccess], uploadArticlesController);
+
+  //Managing unknown endpoints
+  server.get('*', require('./controllers/404'));
+  server.post('*', require('./controllers/404'));
+  server.put('*', require('./controllers/404'));
+  server.delete('*', require('./controllers/404'));
 };
