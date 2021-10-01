@@ -416,7 +416,7 @@
 						{
 							"key": "products",
 							"type": "file",
-							"src": "/Users/jcampana/Projects/jlcampana/com.ingka.assignment/data/products.json"
+							"src": []
 						}
 					]
 				},
@@ -457,7 +457,7 @@
 						{
 							"key": "inventory",
 							"type": "file",
-							"src": "/Users/jcampana/Projects/jlcampana/com.ingka.assignment/data/inventory.json"
+							"src": []
 						}
 					]
 				},

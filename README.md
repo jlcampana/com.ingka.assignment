@@ -26,23 +26,56 @@ The warehouse should have at least the following functionality;
 
 ## My solution
 
-My proposal is a Rest API with the following endpoints:
+My proposal is a NodeJS Rest API using ExpressJS with the following endpoints:
 
-- post /api/oauth
-- get /api/products - available products
-- get /api/sales - sold product list
-- post /api/sales/:name - sell a product
-- post /api/admin/products - upload a products JSON file
-- post /api/admin/articles - upload an articles JSON file
+- POST /api/oauth
+- GET /api/products - available products
+- GET /api/sales - sold product list
+- POST /api/sales/:name - sell a product
+- POST /api/admin/products - upload a products JSON file
+- POST /api/admin/articles - upload an articles JSON file
+
+In the application, there is two kind of users:
+
+- _read and write_ role users
+- _read only_ users
+
+To upload files or to sell a product, you are going to need to be authenticated with a _read and write_ user.
+
+Note: this project was created using node _16.6.1_. It should work with node 12+. You could use [nvm](https://github.com/nvm-sh/nvm) to manage different versions of node in your system.
 
 ## How to start
 
 - Clone this repo
 - Install the dependencies with `npm i`
-- Start the server with `npm start` or `npm run start-with-logs`
-- Use this [Postman collection](./campana-joseluis.postman_collection.json) for a better experience. [Get postman here](https://www.postman.com/).
+- Start the server with `npm start` or use `npm run start-with-logs` to enable logs and check what is happening
+
+Server doesn't persist the changes so it will reset its content each time you start it.
 
 ### Env vars
 
 - DEBUG: Use `DEBUG=error*,warn*,info*,debug*` to trace what is doing the API
 - PORT: default value is 1337
+
+## Interacting with the API
+
+After starting the server (with `npm start` or `npm run start-with-logs`), you can play with the endpoints by using this [Postman collection](./campana-joseluis.postman_collection.json). [Get postman here](https://www.postman.com/).
+
+You need to get a token first so go to _Login with R/W_ or _Login with R only user_:
+
+![R/W user](./doc/login_rw.png)
+![Read only user](./doc/login_r.png)
+
+Click the **Send** button to get _the access_token_.
+
+So now, you can check all the other endpoints because postman will grab the token from the login response and update a variable used in the collection:
+
+![token var](./doc/token.png)
+
+To upload a product JSON file, just go to "Upload products", go to "Body" tab and click on "Select files" button to select a JSON file on your local drive.
+
+![](./doc/upload_products.png)
+
+Same procedure for uploading an articles (inventory) JSON file.
+
+![](./doc/upload_articles.png)
