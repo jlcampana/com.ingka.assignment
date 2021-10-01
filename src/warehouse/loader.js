@@ -2,14 +2,17 @@ const { resolve } = require('path');
 const Article = require('./models/article');
 const Product = require('./models/product');
 const ArticleProduct = require('./models/article-product');
+const isArray = (value) => Array.isArray(value);
+const isString = (value) => typeof value === 'string' || value instanceof String;
 
 /**
  * import product json
- * @param {string} filename
+ * @param {string|object} filename
  * @returns {array} of Product
  */
-const products = (filename) => {
-  const { products: list = [] } = require(resolve(filename)) || {};
+const products = (filenameOrJSON) => {
+  const json = isString(filenameOrJSON) ? require(resolve(filenameOrJSON)) : filenameOrJSON;
+  const { products: list = [] } = json || {};
 
   return list.map((item) => {
     const { name, contain_articles: articles = [], price = 0 } = item;
@@ -21,11 +24,12 @@ const products = (filename) => {
 
 /**
  * import inventory json
- * @param {string} filename
+ * @param {string|object} filenameOrJSON
  * @returns {array} of Article
  */
-const articles = (filename) => {
-  const { inventory: list = [] } = require(resolve(filename)) || {};
+const articles = (filenameOrJSON) => {
+  const json = isString(filenameOrJSON) ? require(resolve(filenameOrJSON)) || {} : filenameOrJSON;
+  const { inventory: list = [] } = json || {};
 
   return list.map(({ art_id: id, name, stock = 0 }) => new Article(id, name, stock));
 };

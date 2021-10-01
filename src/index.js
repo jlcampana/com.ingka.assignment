@@ -2,6 +2,7 @@ const express = require('express');
 const helmet = require('helmet');
 const compression = require('compression');
 const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 
 const WareHouse = require('./warehouse');
 const SecurityManager = require('./security');
@@ -10,6 +11,7 @@ const log = require('./logger')();
 const { port, secret, serverAddress, contentSecurityPolicy } = require('./config');
 
 const reset = true;
+const createParentPath = true;
 
 const warehouseManager = new WareHouse();
 const securityManager = new SecurityManager(secret);
@@ -29,6 +31,10 @@ try {
 
   // parse application/json
   server.use(bodyParser.json());
+
+  server.use(fileUpload({ createParentPath }));
+  // const uploadOptions = { useTempFiles: true, tempFileDir: '/tmp/' };
+  // server.use(fileUpload(uploadOptions));
 
   require('./routes')(server, securityManager, warehouseManager);
 

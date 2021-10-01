@@ -170,6 +170,49 @@
 			"response": []
 		},
 		{
+			"name": "Login NO credentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get Access Token\", function () {",
+							"    pm.collectionVariables.set(\"TOKEN\",undefined);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:1337/api/oauth2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"oauth2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get product list",
 			"request": {
 				"auth": {
@@ -317,6 +360,118 @@
 						"api",
 						"sales",
 						"Fake Product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unknown endpoint",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1337/api/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "products",
+							"type": "file",
+							"src": "/Users/jcampana/Projects/jlcampana/com.ingka.assignment/data/products.json"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:1337/api/admin/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"admin",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload articles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "inventory",
+							"type": "file",
+							"src": "/Users/jcampana/Projects/jlcampana/com.ingka.assignment/data/inventory.json"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:1337/api/admin/articles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"admin",
+						"articles"
 					]
 				}
 			},

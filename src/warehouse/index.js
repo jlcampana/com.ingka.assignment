@@ -22,18 +22,20 @@ class WareHouse {
         const { reset = false } = options;
         try {
           const items = require('./loader').products(filename);
-          this.addProducts(items, { reset });
+          return this.addProducts(items, { reset });
         } catch (error) {
           log.error(error);
+          throw new ProductError();
         }
       },
       articles: (filename, options = {}) => {
         const { reset = false } = options;
         try {
           const items = require('./loader').articles(filename);
-          this.addArticles(items, { reset });
+          return this.addArticles(items, { reset });
         } catch (error) {
           log.error(error);
+          throw new ProductError();
         }
       },
     };
@@ -45,6 +47,7 @@ class WareHouse {
    * @param {array <Product>} productList
    * @param {object} [options={}]
    * @memberof WareHouse
+   * @returns {Number} number of products added
    */
   addProducts(list = [], options = {}) {
     const { reset = false } = options;
@@ -59,6 +62,8 @@ class WareHouse {
     });
 
     log.debug(`${list.length} product(s) added`);
+
+    return list.length;
   }
 
   /**
@@ -67,6 +72,7 @@ class WareHouse {
    * @param {array <Article>} articleList
    * @param {object} [options={}]
    * @memberof WareHouse
+   * @returns {Number} number of articles added
    */
   addArticles(list = [], options = {}) {
     const { reset = false } = options;
@@ -89,6 +95,8 @@ class WareHouse {
     });
 
     log.debug(`${list.length} article(s) added`);
+
+    return list.length;
   }
 
   /**
