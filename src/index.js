@@ -10,13 +10,11 @@ const SecurityManager = require('./security');
 const log = require('./logger')();
 const { port, secret, serverAddress, contentSecurityPolicy } = require('./config');
 
-const reset = true;
-const createParentPath = true;
-
 const warehouseManager = new WareHouse();
 const securityManager = new SecurityManager(secret);
 
 try {
+  const reset = true;
   warehouseManager.loader.products('./data/products.json', { reset });
   warehouseManager.loader.articles('./data/inventory.json', { reset });
   securityManager.loader('./data/users.json');
@@ -24,17 +22,15 @@ try {
   const server = express();
   server.set('x-powered-by', false);
   server.use(compression());
+
+  const createParentPath = true;
+  const extended = false;
+
   server.use(helmet({ contentSecurityPolicy }));
   server.use(bodyParser.json());
-  // parse application/x-www-form-urlencoded
-  server.use(bodyParser.urlencoded({ extended: false }));
-
-  // parse application/json
+  server.use(bodyParser.urlencoded({ extended }));
   server.use(bodyParser.json());
-
   server.use(fileUpload({ createParentPath }));
-  // const uploadOptions = { useTempFiles: true, tempFileDir: '/tmp/' };
-  // server.use(fileUpload(uploadOptions));
 
   require('./routes')(server, securityManager, warehouseManager);
 

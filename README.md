@@ -48,7 +48,7 @@ Note: this project was created using node _16.6.1_. It should work with node 12+
 
 - Clone this repo
 - Install the dependencies with `npm i`
-- Start the server with `npm start` or use `npm run start-with-logs` to enable logs and check what is happening
+- Start the server with `npm start` or use `npm run dev` to enable logs and check what is happening
 
 Server doesn't persist the changes so it will reset its content each time you start it.
 
@@ -59,7 +59,7 @@ Server doesn't persist the changes so it will reset its content each time you st
 
 ## Interacting with the API
 
-After starting the server (with `npm start` or `npm run start-with-logs`), you can play with the endpoints by using this [Postman collection](./campana-joseluis.postman_collection.json). [Get postman here](https://www.postman.com/).
+After starting the server (with `npm start` or `npm run dev`), you can play with the endpoints by using this [Postman collection](./campana-joseluis.postman_collection.json). [Get postman here](https://www.postman.com/).
 
 You need to get a token first so go to _Login with R/W_ or _Login with R only user_:
 

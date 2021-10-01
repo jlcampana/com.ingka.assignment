@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "NodeJS assignment",
   "scripts": {
-    "start": "node ./src/index.js",
+    "start": "DEBUG=error*,warn*,info* node ./src/index.js",
     "test": "jest",
     "coverage": "jest --coverage",
-    "start-with-logs": "DEBUG=error*,warn*,info*,debug* npm start"
+    "dev": "DEBUG=error*,warn*,info*,debug* node ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,6 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
     "helmet": "^4.6.0",
-    "jose": "^3.19.0",
     "jsonwebtoken": "^8.5.1"
   }
 }
