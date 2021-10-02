@@ -13,7 +13,7 @@ module.exports = (warehouse) => {
     }
   };
   const createSale = (req, res) => {
-    const { params } = req;
+    const { params = {} } = req;
     const { name } = params;
 
     if (!name) {

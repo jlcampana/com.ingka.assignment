@@ -50,7 +50,7 @@ Note: this project was created using node _16.6.1_. It should work with node 12+
 - Install the dependencies with `npm i`
 - Start the server with `npm start` or use `npm run dev` to enable logs and check what is happening
 
-Server doesn't persist the changes so it will reset its content each time you start it.
+Server doesn't persist data so it will reset its content each time you start it.
 
 ### Env vars
 
@@ -79,3 +79,8 @@ To upload a product JSON file, just go to "Upload products", go to "Body" tab an
 Same procedure for uploading an articles (inventory) JSON file.
 
 ![](./doc/upload_articles.png)
+
+## Improvement areas
+
+- Create a refresh token feature / endpoint
+- Add a Redis service or another kind of database (Postgres, MongoDB, ...) to persist data and to make scalable the solution
