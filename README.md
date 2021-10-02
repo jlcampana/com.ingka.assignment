@@ -64,7 +64,9 @@ Server doesn't persist data so it will reset its content each time you start it.
 
 ## Interacting with the API
 
-After starting the server (with `npm start` or `npm run dev`), you can play with the endpoints by using this [Postman collection](./campana-joseluis.postman_collection.json). [Get postman here](https://www.postman.com/).
+After starting the server (with `npm start` or `npm run dev`), you can play with the endpoints by using this [Postman collection](./campana-joseluis.postman_collection.json). 
+
+[Get postman here](https://www.postman.com/).
 
 You need to get a token first so go to _Login with R/W_ or _Login with R only user_:
 
