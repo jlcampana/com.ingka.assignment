@@ -8,6 +8,10 @@ class User {
     this._role = Number(role);
   }
 
+  static get roles() {
+    return require('./roles.json');
+  }
+
   /**
    * check if user has read/write access
    *

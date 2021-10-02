@@ -3,7 +3,7 @@ const correctMimeType = (file) => (file && file.mimetype === 'application/json')
 const mimetypeErrorMessage = (name, file) => `field:${name} file:${file.name} incorrect mimetype:${file.mimetype} expected:application/json`;
 
 module.exports = (warehouse) => {
-  return async (req, res) => {
+  return (req, res) => {
     if (!req.files) {
       return res.status(400).send({ message: 'no file found' });
     }

@@ -1,7 +1,7 @@
 const { describe, expect, test } = require('@jest/globals');
 const { resolve } = require('path');
 
-const SecurityManager = require('./');
+const SecurityManager = require('..');
 
 const sm = new SecurityManager('test_secret');
 

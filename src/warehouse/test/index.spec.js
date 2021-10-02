@@ -80,6 +80,36 @@ describe('warehouse', () => {
     expect(Object.keys(wh.articles).length).toBe(0);
   });
 
-  test.todo('add products');
-  test.todo('add articles');
+  test('add products', () => {
+    const extraProducts = {
+      products: [
+        {
+          name: 'New Product',
+          contain_articles: [
+            {
+              art_id: '1',
+              amount_of: '1',
+            },
+          ],
+        },
+      ],
+    };
+    expect(wh.availableProducts.length).toBe(2);
+    wh.loader.products(extraProducts);
+    expect(wh.availableProducts.length).toBe(3);
+  });
+  test('add articles', () => {
+    const extraArticles = {
+      inventory: [
+        {
+          art_id: '5',
+          name: 'metallic leg',
+          stock: '12',
+        },
+      ],
+    };
+    expect(Object.keys(wh.articles).length).toBe(4);
+    wh.loader.articles(extraArticles);
+    expect(Object.keys(wh.articles).length).toBe(5);
+  });
 });

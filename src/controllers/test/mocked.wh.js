@@ -1,8 +1,10 @@
 /* istanbul ignore file */
 const ProductError = require('../../warehouse/error');
+const getAvailableProducts = (data) => Object.keys(data).filter((key) => data[key] > 0);
 
 module.exports = (data) => ({
   sales: [],
+  availableProducts: getAvailableProducts(data),
   sellProductName: (name) => {
     if (data[name] === undefined) {
       throw new ProductError(ProductError.codes.PRODUCT_NOT_FOUND);
@@ -13,5 +15,9 @@ module.exports = (data) => ({
     }
 
     return undefined;
+  },
+  loader: {
+    products: () => 0,
+    articles: () => 0,
   },
 });
