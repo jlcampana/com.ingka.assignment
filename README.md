@@ -57,6 +57,11 @@ Server doesn't persist data so it will reset its content each time you start it.
 - DEBUG: Use `DEBUG=error*,warn*,info*,debug*` to trace what is doing the API
 - PORT: default value is 1337
 
+## Execute test
+
+- `npm test` to run the test battery
+- `npm run coverage` for the coverage report
+
 ## Interacting with the API
 
 After starting the server (with `npm start` or `npm run dev`), you can play with the endpoints by using this [Postman collection](./campana-joseluis.postman_collection.json). [Get postman here](https://www.postman.com/).
