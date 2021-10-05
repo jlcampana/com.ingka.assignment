@@ -89,6 +89,7 @@ Same procedure for uploading an articles (inventory) JSON file.
 
 ## Improvement areas
 
+- Signed token
 - Refresh token feature
 - Add a Redis service or another kind of database (Postgres, MongoDB, ...) to persist data and to make scalable the solution
 - Paginate results on the following GET endpoints:
